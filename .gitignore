@@ -1,1 +1,3 @@
 render-demo/
+__pycache__/
+.env
