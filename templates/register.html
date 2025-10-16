@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}註冊 - 簡單部落格{% endblock %}
+{% block content %}
+<h1>註冊</h1>
+{% if error %}<div class="alert alert-danger">{{ error }}</div>{% endif %}
+<form method="post" action="{{ url_for('register') }}">
+  <div class="mb-3">
+    <label class="form-label">帳號</label>
+    <input class="form-control" name="username" value="{{ username|default('') }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">密碼</label>
+    <input class="form-control" type="password" name="password">
+  </div>
+  <button class="btn btn-primary" type="submit">註冊並登入</button>
+</form>
+{% endblock %}

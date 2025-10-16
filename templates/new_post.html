@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}新增文章 - 簡單部落格{% endblock %}
+{% block content %}
+<h1>新增文章</h1>
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% endif %}
+<form method="post" action="{{ url_for('create_post_from_form') }}">
+  <div class="mb-3">
+    <label class="form-label">標題</label>
+    <input class="form-control" name="title" value="{{ title|default('') }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">內容</label>
+    <textarea class="form-control" name="content" rows="8">{{ content|default('') }}</textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">發佈</button>
+  <a class="btn btn-secondary" href="{{ url_for('index') }}">取消</a>
+</form>
+{% endblock %}

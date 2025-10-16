@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}文章列表 - 簡單部落格{% endblock %}
+{% block content %}
+<h1>文章列表</h1>
+<div class="list-group">
+  {% for p in posts %}
+  <a class="list-group-item list-group-item-action" href="{{ url_for('view_post', post_id=p.id) }}">
+    <h5 class="mb-1">{{ p.title }}</h5>
+    <small class="text-muted">作者：{{ p.author.username }} · {{ p.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+  </a>
+  {% else %}
+  <div class="alert alert-secondary">目前沒有文章。</div>
+  {% endfor %}
+</div>
+{% endblock %}
